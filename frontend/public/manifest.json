@@ -17,4 +17,10 @@
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#455a64"
+  "theme_color": "#455a64",
+  "prefer_related_applications": false,
+  "persistent_storage": true,
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  }
 }
