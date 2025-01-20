@@ -107,6 +107,9 @@ const submit = async (event: Event) => {
         error.value = t("login.usernameTaken");
       } else if (e.status === 403) {
         error.value = t("login.wrongCredentials");
+        if (recaptcha) {
+          window.grecaptcha.reset();
+        }
       } else {
         $showError(e);
       }
