@@ -378,7 +378,13 @@ func quickSetup(flags *pflag.FlagSet, d pythonData) {
 	password := getParam(flags, "password")
 
 	if password == "" {
-		password, err = users.HashPwd("admin")
+		var pwd string
+		pwd, err = users.RandomPwd()
+		checkErr(err)
+
+		log.Println("Generated random admin password for quick setup:", pwd)
+
+		password, err = users.HashPwd(pwd)
 		checkErr(err)
 	}
 
