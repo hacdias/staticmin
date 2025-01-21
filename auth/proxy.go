@@ -22,7 +22,12 @@ type ProxyAuth struct {
 func (a ProxyAuth) Auth(r *http.Request, usr users.Store, setting *settings.Settings, srv *settings.Server) (*users.User, error) {
 	username := r.Header.Get(a.Header)
 	user, err := usr.Get(srv.Root, username)
-	if errors.Is(err, fbErrors.ErrNotExist) {
+	if err != nil {
+		// Return the error unless it is a user does not exist error
+		if !errors.Is(err, fbErrors.ErrNotExist) {
+			return nil, err
+		}
+
 		randomPasswordBytes := make([]byte, 32) //nolint:gomnd
 		_, err = rand.Read(randomPasswordBytes)
 		if err != nil {
@@ -55,7 +60,7 @@ func (a ProxyAuth) Auth(r *http.Request, usr users.Store, setting *settings.Sett
 		}
 	}
 
-	return user, err
+	return user, nil
 }
 
 // LoginPage tells that proxy auth doesn't require a login page.
