@@ -9,7 +9,7 @@
     "create": "생성",
     "delete": "삭제",
     "download": "다운로드",
-    "hideDotfiles": "",
+    "hideDotfiles": "숨김파일(dotfile)을 표시 안함",
     "info": "정보",
     "more": "더보기",
     "move": "이동",
@@ -38,7 +38,7 @@
   "download": {
     "downloadFile": "파일 다운로드",
     "downloadFolder": "폴더 다운로드",
-    "downloadSelected": ""
+    "downloadSelected": "선택 항목 다운로드"
   },
   "errors": {
     "forbidden": "접근 권한이 없습니다.",
@@ -120,8 +120,8 @@
     "scheduleMessage": "이 글을 공개할 시간을 알려주세요.",
     "show": "보기",
     "size": "크기",
-    "upload": "",
-    "uploadMessage": ""
+    "upload": "업로드",
+    "uploadMessage": "업로드 옵션을 선택하세요."
   },
   "search": {
     "images": "이미지",
@@ -160,7 +160,7 @@
     "executeOnShellDescription": "기본적으로 File Browser 는 바이너리를 명령어로 호출하여 실행합니다. 쉘을 통해 실행하기를 원한다면, Bash 또는 PowerShell 에 필요한 인수와 플래그를 설정하세요. 사용자 명령어와 이벤트 훅에 모두 적용됩니다.",
     "globalRules": "규칙에 대한 전역설정으로 모든 사용자에게 적용됩니다. 지정된 규칙은 사용자 설정을 덮어쓰기 합니다.",
     "globalSettings": "전역 설정",
-    "hideDotfiles": "",
+    "hideDotfiles": "숨김파일(dotfile)을 표시하지 않습니다.",
     "insertPath": "경로 입력",
     "insertRegex": "정규식 입력",
     "instanceName": "인스턴스 이름",
@@ -171,7 +171,7 @@
     "newUser": "새로운 사용자",
     "password": "비밀번호",
     "passwordUpdated": "비밀번호 수정 완료!",
-    "path": "",
+    "path": "경로",
     "perm": {
       "create": "파일이나 디렉토리 생성하기",
       "delete": "화일이나 디렉토리 삭제하기",
@@ -190,13 +190,13 @@
     "rulesHelp": "사용자별로 규칙을 허용/방지를 지정할 수 있습니다. 방지된 파일은 보이지 않고 사용자들은 접근할 수 없습니다. 사용자의 접근 허용 범위와 관련해 정규표현식(regex)과 경로를 지원합니다.\n",
     "scope": "범위",
     "settingsUpdated": "설정 수정됨!",
-    "shareDuration": "",
-    "shareManagement": "",
-    "singleClick": "",
+    "shareDuration": "공유 기간",
+    "shareManagement": "공유 내역 관리",
+    "singleClick": "한번 클릭으로 파일과 폴더를 열도록 합니다.",
     "themes": {
-      "dark": "",
-      "light": "",
-      "title": ""
+      "dark": "다크테마",
+      "light": "라이트테마",
+      "title": "테마"
     },
     "user": "사용자",
     "userCommands": "명령어",
