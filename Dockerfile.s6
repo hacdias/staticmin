@@ -2,13 +2,18 @@ FROM ghcr.io/linuxserver/baseimage-alpine:3.20
 
 RUN apk --update add ca-certificates \
                      mailcap \
-                     curl
+                     curl \
+                     jq
+
+COPY healthcheck.sh /healthcheck.sh
+RUN chmod +x /healthcheck.sh  # Make the script executable
 
 HEALTHCHECK --start-period=2s --interval=5s --timeout=3s \
-  CMD curl -f http://localhost/health || exit 1
+    CMD /healthcheck.sh || exit 1
 
 # copy local files
 COPY docker/root/ /
+RUN ln -s /config/settings.json /.filebrowser.json
 COPY filebrowser /usr/bin/filebrowser
 
 # ports and volumes
