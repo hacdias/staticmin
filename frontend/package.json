@@ -69,7 +69,7 @@
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
     "terser": "^5.30.0",
-    "vite": "^6.0.2",
+    "vite": "^6.0.9",
     "vite-plugin-compression2": "^1.0.0",
     "vue-tsc": "^2.0.7"
   },
