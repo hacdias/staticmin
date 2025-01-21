@@ -30,6 +30,7 @@ type userInfo struct {
 	LockPassword bool              `json:"lockPassword"`
 	HideDotfiles bool              `json:"hideDotfiles"`
 	DateFormat   bool              `json:"dateFormat"`
+	Username     string            `json:"username"`
 }
 
 type authToken struct {
@@ -195,6 +196,7 @@ func printToken(w http.ResponseWriter, _ *http.Request, d *data, user *users.Use
 			Commands:     user.Commands,
 			HideDotfiles: user.HideDotfiles,
 			DateFormat:   user.DateFormat,
+			Username:     user.Username,
 		},
 		RegisteredClaims: jwt.RegisteredClaims{
 			IssuedAt:  jwt.NewNumericDate(time.Now()),
