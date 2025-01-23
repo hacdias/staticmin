@@ -191,8 +191,13 @@ export default {
     logout: auth.logout,
   },
   watch: {
-    isFiles(newValue) {
-      newValue && this.fetchUsage();
+    $route: {
+      handler(to) {
+        if (to.path.includes("/files")) {
+          this.fetchUsage();
+        }
+      },
+      immediate: true,
     },
   },
 };
