@@ -131,6 +131,13 @@ func tusPatchHandler() handleFunc {
 			)
 		}
 
+		if uploadOffset == 0 {
+			err = d.RunBeforeHook("upload", r.URL.Path, "", d.user)
+			if err != nil {
+				return errToStatus(err), err
+			}
+		}
+
 		openFile, err := d.user.Fs.OpenFile(r.URL.Path, os.O_WRONLY|os.O_APPEND, files.PermFile)
 		if err != nil {
 			return http.StatusInternalServerError, fmt.Errorf("could not open file: %w", err)
@@ -149,6 +156,13 @@ func tusPatchHandler() handleFunc {
 		}
 
 		w.Header().Set("Upload-Offset", strconv.FormatInt(uploadOffset+bytesWritten, 10))
+
+		if bytesWritten < int64(d.Settings.Tus.ChunkSize) {
+			err = d.RunAfterHook("upload", r.URL.Path, "", d.user)
+			if err != nil {
+				return errToStatus(err), err
+			}
+		}
 
 		return http.StatusNoContent, nil
 	})

@@ -17,6 +17,39 @@ type Runner struct {
 	*settings.Settings
 }
 
+// RunBeforeHook and RunAfterHook trigger the command runner at their respective times.
+func (r *Runner) RunBeforeHook(evt, path, dst string, user *users.User) error {
+	path = user.FullPath(path)
+	dst = user.FullPath(dst)
+	if r.Enabled {
+		if val, ok := r.Commands["before_"+evt]; ok {
+			for _, command := range val {
+				err := r.exec(command, "before_"+evt, path, dst, user)
+				if err != nil {
+					return err
+				}
+			}
+		}
+	}
+	return nil
+}
+
+func (r *Runner) RunAfterHook(evt, path, dst string, user *users.User) error {
+	path = user.FullPath(path)
+	dst = user.FullPath(dst)
+	if r.Enabled {
+		if val, ok := r.Commands["after_"+evt]; ok {
+			for _, command := range val {
+				err := r.exec(command, "after_"+evt, path, dst, user)
+				if err != nil {
+					return err
+				}
+			}
+		}
+	}
+	return nil
+}
+
 // RunHook runs the hooks for the before and after event.
 func (r *Runner) RunHook(fn func() error, evt, path, dst string, user *users.User) error {
 	path = user.FullPath(path)

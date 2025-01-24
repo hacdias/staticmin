@@ -194,7 +194,7 @@ func convertCmdStrToCmdArray(cmd string) []string {
 	var cmdArray []string
 	trimmedCmdStr := strings.TrimSpace(cmd)
 	if trimmedCmdStr != "" {
-		cmdArray = strings.Split(trimmedCmdStr, " ")
+		cmdArray = strings.Split(trimmedCmdStr, ",")
 	}
 	return cmdArray
 }
