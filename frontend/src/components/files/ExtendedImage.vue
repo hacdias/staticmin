@@ -102,10 +102,11 @@ const decodeUTIF = () => {
   if (document?.location?.pathname === undefined) {
     return;
   }
-  let suff = document.location.pathname.split(".")?.pop()?.toLowerCase() ?? "";
+  const suff =
+    document.location.pathname.split(".")?.pop()?.toLowerCase() ?? "";
 
   if (sufs.indexOf(suff) == -1) return false;
-  let xhr = new XMLHttpRequest();
+  const xhr = new XMLHttpRequest();
   UTIF._xhrs.push(xhr);
   UTIF._imgs.push(imgex.value);
   xhr.open("GET", props.src);
@@ -230,7 +231,7 @@ const touchMove = (event: TouchEvent) => {
   if (imgex.value === null) {
     return;
   }
-  let step = imgex.value.width / 5;
+  const step = imgex.value.width / 5;
   if (event.targetTouches.length === 2) {
     moveDisabled.value = true;
     if (disabledTimer.value) clearTimeout(disabledTimer.value);
@@ -239,9 +240,9 @@ const touchMove = (event: TouchEvent) => {
       props.moveDisabledTime
     );
 
-    let p1 = event.targetTouches[0];
-    let p2 = event.targetTouches[1];
-    let touchDistance = Math.sqrt(
+    const p1 = event.targetTouches[0];
+    const p2 = event.targetTouches[1];
+    const touchDistance = Math.sqrt(
       Math.pow(p2.pageX - p1.pageX, 2) + Math.pow(p2.pageY - p1.pageY, 2)
     );
     if (!lastTouchDistance.value) {
@@ -253,8 +254,8 @@ const touchMove = (event: TouchEvent) => {
     setZoom();
   } else if (event.targetTouches.length === 1) {
     if (moveDisabled.value) return;
-    let x = event.targetTouches[0].pageX - (lastX.value ?? 0);
-    let y = event.targetTouches[0].pageY - (lastY.value ?? 0);
+    const x = event.targetTouches[0].pageX - (lastX.value ?? 0);
+    const y = event.targetTouches[0].pageY - (lastY.value ?? 0);
     if (Math.abs(x) >= step && Math.abs(y) >= step) return;
     lastX.value = event.targetTouches[0].pageX;
     lastY.value = event.targetTouches[0].pageY;
@@ -268,8 +269,8 @@ const doMove = (x: number, y: number) => {
   }
   const style = imgex.value.style;
 
-  let posX = pxStringToNumber(style.left) + x;
-  let posY = pxStringToNumber(style.top) + y;
+  const posX = pxStringToNumber(style.left) + x;
+  const posY = pxStringToNumber(style.top) + y;
 
   style.left = posX + "px";
   style.top = posY + "px";

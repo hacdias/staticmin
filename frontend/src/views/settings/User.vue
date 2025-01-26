@@ -90,7 +90,7 @@ const fetchData = async () => {
 
   try {
     if (isNew.value) {
-      let { defaults, createUserDir: _createUserDir } = await settings.get();
+      const { defaults, createUserDir: _createUserDir } = await settings.get();
       createUserDir.value = _createUserDir;
       user.value = {
         ...defaults,

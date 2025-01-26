@@ -43,7 +43,7 @@ export default {
     submit: async function () {
       this.updateRequest(null);
 
-      let uri = url.removeLastDir(this.$route.path) + "/";
+      const uri = url.removeLastDir(this.$route.path) + "/";
       this.$router.push({ path: uri });
     },
   },

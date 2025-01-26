@@ -25,7 +25,7 @@ export async function create(user: IUser) {
   throw new StatusError(await res.text(), res.status);
 }
 
-export async function update(user: IUser, which = ["all"]) {
+export async function update(user: Partial<IUser>, which = ["all"]) {
   await fetchURL(`/api/users/${user.id}`, {
     method: "PUT",
     body: JSON.stringify({

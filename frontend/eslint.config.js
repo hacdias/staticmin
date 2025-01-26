@@ -19,14 +19,13 @@ export default [
 
   {
     rules: {
-      "no-var": "warn",
-      "prefer-const": "warn",
       // Note: you must disable the base rule as it can report incorrect errors
       "no-unused-expressions": "off",
-      "@typescript-eslint/no-unused-expressions": "warn",
-      "@typescript-eslint/no-explicit-any": "warn",
-      "@typescript-eslint/ban-ts-comment": "warn",
-      "vue/block-lang": "warn",
+      "@typescript-eslint/no-unused-expressions": "off",
+      // TODO: theres too many of these from before ts
+      "@typescript-eslint/no-explicit-any": "off",
+      // TODO: finish the ts conversion
+      "vue/block-lang": "off",
       "vue/multi-word-component-names": "off",
       "vue/no-mutating-props": [
         "error",

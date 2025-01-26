@@ -196,13 +196,23 @@ export default {
   methods: {
     ...mapActions(useLayoutStore, ["closeHovers"]),
     copyToClipboard: function (text) {
-      copy(text).then(
+      copy({ text }).then(
         () => {
           // clipboard successfully set
           this.$showSuccess(this.$t("success.linkCopied"));
         },
         () => {
           // clipboard write failed
+          copy({ text }, { permission: true }).then(
+            () => {
+              // clipboard successfully set
+              this.$showSuccess(this.$t("success.linkCopied"));
+            },
+            (e) => {
+              // clipboard write failed
+              this.$showError(e);
+            }
+          );
         }
       );
     },

@@ -163,7 +163,7 @@ export default {
       this.canInput = false;
       event.target.innerHTML = "";
 
-      let results = {
+      const results = {
         text: `${cmd}\n\n`,
       };
 
@@ -180,7 +180,7 @@ export default {
         },
         () => {
           results.text = results.text
-            // eslint-disable-next-line no-control-regex
+
             .replace(/\u001b\[[0-9;]+m/g, "") // Filter ANSI color for now
             .trimEnd();
           this.canInput = true;

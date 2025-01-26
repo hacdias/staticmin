@@ -353,7 +353,7 @@ const updatePreview = async () => {
     autoPlay.value = false;
   }
 
-  let dirs = route.fullPath.split("/");
+  const dirs = route.fullPath.split("/");
   name.value = decodeURIComponent(dirs[dirs.length - 1]);
 
   if (!listing.value) {
@@ -422,7 +422,7 @@ const toggleNavigation = throttle(function () {
 const close = () => {
   fileStore.updateRequest(null);
 
-  let uri = url.removeLastDir(route.path) + "/";
+  const uri = url.removeLastDir(route.path) + "/";
   router.push({ path: uri });
 };
 

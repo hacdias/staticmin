@@ -39,7 +39,7 @@ export default {
   methods: {
     remove(event, index) {
       event.preventDefault();
-      let rules = [...this.rules];
+      const rules = [...this.rules];
       rules.splice(index, 1);
       this.$emit("update:rules", [...rules]);
     },

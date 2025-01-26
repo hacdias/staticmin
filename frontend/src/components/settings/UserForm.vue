@@ -116,7 +116,7 @@ watch(createUserDirData, () => {
   if (props.user?.scope) {
     props.user.scope = createUserDirData.value
       ? ""
-      : originalUserScope.value ?? "";
+      : (originalUserScope.value ?? "");
   }
 });
 </script>

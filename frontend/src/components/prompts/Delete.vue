@@ -74,8 +74,8 @@ export default {
           return;
         }
 
-        let promises = [];
-        for (let index of this.selected) {
+        const promises = [];
+        for (const index of this.selected) {
           promises.push(api.remove(this.req.items[index].url));
         }
 

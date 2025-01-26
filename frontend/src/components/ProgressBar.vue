@@ -46,7 +46,7 @@ https://raw.githubusercontent.com/dzwillia/vue-simple-progress/master/src/compon
 
 <script>
 // We're leaving this untouched as you can read in the beginning
-var isNumber = function (n) {
+const isNumber = function (n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 };
 
@@ -107,7 +107,7 @@ export default {
   },
   computed: {
     pct() {
-      var pct = (this.val / this.max) * 100;
+      let pct = (this.val / this.max) * 100;
       pct = pct.toFixed(2);
       return Math.min(pct, this.max);
     },
@@ -160,7 +160,7 @@ export default {
       return isNumber(this.fontSize) ? this.fontSize : 13;
     },
     progress_style() {
-      var style = {
+      const style = {
         background: this.bgColor,
       };
 
@@ -177,7 +177,7 @@ export default {
       return style;
     },
     bar_style() {
-      var style = {
+      const style = {
         background: this.barColor,
         width: this.pct + "%",
         height: this.size_px + "px",
@@ -198,7 +198,7 @@ export default {
       return style;
     },
     text_style() {
-      var style = {
+      const style = {
         color: this.textFgColor,
         "font-size": this.text_font_size + "px",
         "text-align": this.textAlign,

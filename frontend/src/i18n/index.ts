@@ -142,7 +142,7 @@ export const i18n = createI18n({
 
 export const isRtl = (locale?: string) => {
   // see below
-  // @ts-ignore
+  // @ts-expect-error incorrect type when legacy
   return rtlLanguages.includes(locale || i18n.global.locale.value);
 };
 
@@ -150,7 +150,7 @@ export function setLocale(locale: string) {
   dayjs.locale(locale);
   // according to doc u only need .value if legacy: false but they lied
   // https://vue-i18n.intlify.dev/guide/essentials/scope.html#local-scope-1
-  //@ts-ignore
+  // @ts-expect-error incorrect type when legacy
   i18n.global.locale.value = locale;
 }
 

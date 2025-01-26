@@ -24,7 +24,7 @@ export async function validateLogin() {
       await renew(<string>localStorage.getItem("jwt"));
     }
   } catch (error) {
-    console.warn("Invalid JWT token in storage"); // eslint-disable-line
+    console.warn("Invalid JWT token in storage");
     throw error;
   }
 }

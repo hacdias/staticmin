@@ -108,7 +108,7 @@ onMounted(() => {
     showPrintMargin: false,
     readOnly: fileStore.req?.type === "textImmutable",
     theme: "ace/theme/chrome",
-    mode: modelist.getModeForPath(fileStore.req?.name).mode,
+    mode: modelist.getModeForPath(fileStore.req!.name).mode,
     wrap: true,
     enableBasicAutocompletion: true,
     enableLiveAutocompletion: true,
@@ -173,7 +173,7 @@ const close = () => {
 
   fileStore.updateRequest(null);
 
-  let uri = url.removeLastDir(route.path) + "/";
+  const uri = url.removeLastDir(route.path) + "/";
   router.push({ path: uri });
 };
 

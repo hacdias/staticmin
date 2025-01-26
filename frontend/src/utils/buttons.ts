@@ -4,7 +4,7 @@ function loading(button: string) {
   );
 
   if (el === undefined || el === null) {
-    console.log("Error getting button " + button); // eslint-disable-line
+    console.log("Error getting button " + button);
     return;
   }
 
@@ -30,7 +30,7 @@ function done(button: string) {
   );
 
   if (el === undefined || el === null) {
-    console.log("Error getting button " + button); // eslint-disable-line
+    console.log("Error getting button " + button);
     return;
   }
 
@@ -51,7 +51,7 @@ function success(button: string) {
   );
 
   if (el === undefined || el === null) {
-    console.log("Error getting button " + button); // eslint-disable-line
+    console.log("Error getting button " + button);
     return;
   }
 

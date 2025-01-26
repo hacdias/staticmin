@@ -34,7 +34,7 @@ const props = defineProps<{
 
 const items = computed(() => {
   const relativePath = route.path.replace(props.base, "");
-  let parts = relativePath.split("/");
+  const parts = relativePath.split("/");
 
   if (parts[0] === "") {
     parts.shift();
@@ -44,7 +44,7 @@ const items = computed(() => {
     parts.pop();
   }
 
-  let breadcrumbs: BreadCrumb[] = [];
+  const breadcrumbs: BreadCrumb[] = [];
 
   for (let i = 0; i < parts.length; i++) {
     if (i === 0) {

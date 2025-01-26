@@ -73,11 +73,16 @@ const initVideoPlayer = async () => {
     const langOpt = { language: "videoPlayerLocal" };
     // support for playback at different speeds.
     const playbackRatesOpt = { playbackRates: [0.5, 1, 1.5, 2, 2.5, 3] };
-    let options = getOptions(props.options, langOpt, srcOpt, playbackRatesOpt);
+    const options = getOptions(
+      props.options,
+      langOpt,
+      srcOpt,
+      playbackRatesOpt
+    );
     player.value = videojs(videoPlayer.value!, options, () => {});
 
     // TODO: need to test on mobile
-    // @ts-ignore
+    // @ts-expect-error no ts definition for mobileUi
     player.value!.mobileUi();
   } catch (error) {
     console.error("Error initializing video player:", error);
