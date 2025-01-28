@@ -173,7 +173,7 @@
     "executeOnShellDescription": "Por defecto, FileBrowser ejecuta los comandos llamando directamente a sus binarios. Si quieres ejecutarlos en un shell en su lugar (como Bash o PowerShell), puedes definirlo aquí con los argumentos y banderas (flags) necesarios. Si se define, el comando que se ejecuta se añadirá como argumento. Esto se aplica tanto a los comandos de usuario como a los ganchos de eventos.",
     "globalRules": "Se trata de un conjunto global de reglas de permiso y rechazo. Se aplican a todos los usuarios. Puedes definir reglas específicas en la configuración de cada usuario para anular estas.",
     "globalSettings": "Ajustes globales",
-    "hideDotfiles": "",
+    "hideDotfiles": "Ocultar archivos empezados por punto",
     "insertPath": "Introduce la ruta",
     "insertRegex": "Introducir expresión regular",
     "instanceName": "Nombre de la instancia",
